@@ -291,6 +291,18 @@ The Serial Monitor will show:
 - Serial debugging output
 - Error handling and status reporting
 
+## Proof of Concept
+
+This project has been successfully tested and verified to work! 
+
+**Example Email Received:**
+- **From:** ESP32-CAM <bryanrph2@gmail.com>
+- **Subject:** ESP32-CAM Photo Captured
+- **Date:** Successfully sent and received via Gmail SMTP
+- **Attachment:** Photo captured by ESP32-CAM module
+
+See the `proof/` folder for an example photo that was captured and successfully sent via email, demonstrating that the project works as intended.
+
 ## License
 
 This code is based on the work by Rui Santos & Sara Santos - Random Nerd Tutorials.

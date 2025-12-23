@@ -5,27 +5,32 @@
 # 3. Do NOT initialize with README, .gitignore, or license (we already have these)
 # 4. Copy the repository URL (e.g., https://github.com/yourusername/ESP32-CAM-Email-Photo-Sender.git)
 
+$gitPath = "C:\Program Files\Git\bin\git.exe"
+
 Write-Host "ESP32-CAM Email Photo Sender - GitHub Push Script" -ForegroundColor Cyan
 Write-Host ""
 
-$repoUrl = Read-Host "Enter your GitHub repository URL (e.g., https://github.com/yourusername/ESP32-CAM-Email-Photo-Sender.git)"
+# Use the configured remote URL
+$repoUrl = "https://github.com/bryanrph/ESP32-CAM-Email-Photo-Sender.git"
 
-if ([string]::IsNullOrWhiteSpace($repoUrl)) {
-    Write-Host "Error: Repository URL cannot be empty!" -ForegroundColor Red
-    exit 1
-}
-
+Write-Host "Repository URL: $repoUrl" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "Adding remote origin..." -ForegroundColor Yellow
-git remote add origin $repoUrl
+
+# Verify remote is set correctly
+Write-Host "Setting remote origin..." -ForegroundColor Yellow
+& $gitPath remote set-url origin $repoUrl
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "Remote might already exist. Trying to set URL..." -ForegroundColor Yellow
-    git remote set-url origin $repoUrl
+    Write-Host "Adding remote origin..." -ForegroundColor Yellow
+    & $gitPath remote add origin $repoUrl
 }
 
+Write-Host "Checking repository status..." -ForegroundColor Yellow
+& $gitPath status
+
+Write-Host ""
 Write-Host "Pushing to GitHub..." -ForegroundColor Yellow
-git push -u origin main
+& $gitPath push -u origin main
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host ""
@@ -34,8 +39,13 @@ if ($LASTEXITCODE -eq 0) {
 } else {
     Write-Host ""
     Write-Host "Push failed. Common issues:" -ForegroundColor Red
-    Write-Host "1. Make sure you've created the repository on GitHub first" -ForegroundColor Yellow
+    Write-Host "1. Make sure you've created the repository on GitHub first at:" -ForegroundColor Yellow
+    Write-Host "   https://github.com/new" -ForegroundColor Cyan
+    Write-Host "   Name it: ESP32-CAM-Email-Photo-Sender" -ForegroundColor Yellow
+    Write-Host "   Do NOT initialize with README, .gitignore, or license" -ForegroundColor Yellow
     Write-Host "2. Check your authentication (you may need to use a personal access token)" -ForegroundColor Yellow
     Write-Host "3. Verify the repository URL is correct" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "After creating the repository, run this script again." -ForegroundColor Cyan
 }
 
