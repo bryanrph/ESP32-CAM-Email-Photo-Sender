@@ -310,3 +310,25 @@ Feel free to submit issues and enhancement requests!
 
 Based on tutorial by Rui Santos & Sara Santos - Random Nerd Tutorials
 
+---
+
+## YOUR_NAME : NOTES FOR CSN150
+
+### Purpose:
+
+
+### Equipment Used:
+
+
+### Tools used: 
+Arduino, GPTx, etc...
+
+
+### Steps I Followed:
+
+
+### Problems / Solutions: 
+
+
+### Final Report:
+
