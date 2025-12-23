@@ -1,0 +1,33 @@
+# Arduino IDE files
+*.hex
+*.elf
+*.bin
+*.map
+build/
+*.o
+*.d
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.cache
+*.tmp
+
+# Library dependencies (if managed externally)
+# libraries/
+# hardware/
+
+# Sensitive information (if you create separate config file)
+# config.h
+# secrets.h
+
